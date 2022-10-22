@@ -328,7 +328,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 112065165}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fbcfce31cb674134c85be5f04b1f6b6e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -575,7 +575,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!114 &198650861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,10 +588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f528fe655aff83b4b8fd5cc9f0294f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer1: 0
-  speed: 0
-  rb: {fileID: 0}
+  isPlayer1: 1
+  speed: 5
+  rb: {fileID: 198650860}
   movement: 0
+  Test: 3
 --- !u!1 &261405073
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +810,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!114 &783811064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,9 +824,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 0
-  speed: 0
-  rb: {fileID: 0}
+  speed: 5
+  rb: {fileID: 783811063}
   movement: 0
+  Test: 3
 --- !u!1 &879887062
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +922,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 879887062}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fbcfce31cb674134c85be5f04b1f6b6e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1060,6 +1062,7 @@ GameObject:
   - component: {fileID: 991524954}
   - component: {fileID: 991524957}
   - component: {fileID: 991524956}
+  - component: {fileID: 991524958}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -1150,11 +1153,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fbcfce31cb674134c85be5f04b1f6b6e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &991524957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1181,6 +1184,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &991524958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991524953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988de3bb7dd17e47bbcbfdbd02edead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rb: {fileID: 991524956}
 --- !u!1 &1339273808
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public bool isPlayer1;
-    public float speed;
-    public Rigidbody2D rb;
-    public float movement;
+    public bool isPlayer1; // Is Player 1
+    public float speed; // Speed
+    public Rigidbody2D rb; // Rb
+    public float movement; // Movement
+    public int Test = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class Paddle : MonoBehaviour
     {
         if(isPlayer1)
         {
-            movement = Input.GetAxisRaw("Vertical");
+            movement = Input.GetAxisRaw("Vertical1");
         }
         else
         {
