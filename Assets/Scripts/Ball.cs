@@ -10,7 +10,17 @@ public class Ball : MonoBehaviour
     
     public void Launch()
     {
-        float x = Random.Range(0, 2) == 0 ? -1 : 1;
+        float x = 0;
+        int privremenBroj = Random.Range(0, 2);
+        if (privremenBroj == 0)
+        {
+            x = -1;
+        }
+        else
+        {
+            x = 1;
+        }
+
         float y = Random.Range(0, 2) == 0 ? -1 : 1;
         rb.velocity = new Vector2(speed * x, speed * y);
     }
