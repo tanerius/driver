@@ -5,6 +5,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public TextMeshProUGUI WinnerText;
+
+    public GameObject Meni;
+
     public GameObject Player1;
     public GameObject Player2;
 
@@ -27,15 +31,24 @@ public class GameManager : MonoBehaviour
 
     private bool IsRestart = true;
 
+    private bool IsGameRunning = false;
+
     private void Start()
     {
+        IsGameRunning = false;
+        Meni.SetActive(true);
+
         CounterText.text = "3";
         ToggleText(true);
         IsRestart = true;
+
     }
 
     public void Update()
     {
+        if (IsGameRunning == false)
+            return;
+
         if(IsRestart == true)
         {
             TimePassedCounter = TimePassedCounter - Time.deltaTime;
@@ -60,6 +73,7 @@ public class GameManager : MonoBehaviour
         ToggleText(true);
         BallScript.ResetBall();
         IsRestart = true;
+        AnyoneScored();
     }
 
     public void Player2Scored()
@@ -69,6 +83,31 @@ public class GameManager : MonoBehaviour
         ToggleText(true);
         BallScript.ResetBall();
         IsRestart = true;
+        AnyoneScored();
+    }
+
+    private void AnyoneScored()
+    {
+        if(Score1 == 3)
+        {
+            // Da se ispise tekst sto ke ni kaze deka Player 1 pobedil
+            WinnerText.text = "Player 1 is the winner!";
+
+            // Da zavrsi igrata
+            // i da se resetira score
+            StopGame();
+        }
+
+        if (Score2 == 3)
+        {
+            // Da se ispise tekst sto ke ni kaze deka Player 2 pobedil
+            WinnerText.text = "Player 2 is the winner!";
+
+            // Da zavrsi igrata
+            // i da se resetira score
+            StopGame();
+        }
+
     }
 
     public void ToggleText(bool p)
@@ -80,5 +119,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        Meni.SetActive(false);
+        IsGameRunning = true;
 
+        // Da se izbrise tekstot (koj pobedil) od minatata igra 
+        WinnerText.text = "";
+    }
+
+    public void StopGame()
+    {
+        // Prekini ja igrata
+        IsGameRunning = false;
+
+        // Prikazi go menito
+        Meni.SetActive(true);
+
+        // Donesi ja topkata vo sredina
+        BallScript.ResetBall();
+
+        // Resetiraj go brojcanikot da pocne da broi povtorno od 3
+        TimePassedCounter = 3f;
+
+        // Setiraj go tekstot da bide ednakov na 3
+        CounterText.text = "3";
+
+        // Prikazi go brojcanikot
+        ToggleText(true);
+
+        // Resetirame rezultatite
+        Score1 = 0;
+        Score2 = 0;
+        ScoreText1.text = Score1.ToString();
+        ScoreText2.text = Score2.ToString();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
