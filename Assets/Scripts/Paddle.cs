@@ -5,21 +5,19 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     public bool isPlayer1; // Is Player 1
-    public float speed; // Speed
     public Rigidbody2D rb; // Rb
-    public float movement; // Movement
-    public int Test = 3;
+    private float movement; // Movement
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float speed; // Speed
+    private float increment;
+
+    private float timePassed = 0;
+
 
     // Update is called once per frame
     void Update()
     {
-        if(isPlayer1)
+        if (isPlayer1)
         {
             movement = Input.GetAxisRaw("Vertical1");
         }
@@ -28,6 +26,19 @@ public class Paddle : MonoBehaviour
             movement = Input.GetAxisRaw("Vertical2");
         }
 
+        timePassed = timePassed + Time.deltaTime;
+        if (timePassed >= 3f)
+        {
+            speed = speed + increment;
+            timePassed = 0;
+        }
+
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+    }
+
+    public void SetSpeeds(float _speed, float _increment)
+    {
+        speed = _speed;
+        increment = _increment;
     }
 }

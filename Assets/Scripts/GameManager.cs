@@ -5,6 +5,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game properties")]
+    public float speed = 5f;
+    public float increment = 0.3f;
+
+    [Space(50)]
     public TextMeshProUGUI WinnerText;
 
     public GameObject Meni;
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour
     private float TimePassedCounter = 3.5f;
 
     public Ball BallScript;
+    public Paddle Player1Paddle;
+    public Paddle Player2Paddle;
 
     private bool IsRestart = true;
 
@@ -126,6 +133,10 @@ public class GameManager : MonoBehaviour
 
         // Da se izbrise tekstot (koj pobedil) od minatata igra 
         WinnerText.text = "";
+
+        BallScript.SetSpeeds(speed, increment);
+        Player1Paddle.SetSpeeds(speed, increment);
+        Player2Paddle.SetSpeeds(speed, increment);
     }
 
     public void StopGame()
