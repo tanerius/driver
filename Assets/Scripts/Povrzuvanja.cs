@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Povrzuvanja : MonoBehaviour
 {
@@ -28,10 +27,5 @@ public class Povrzuvanja : MonoBehaviour
     public void AutoZbir()
     {
         AvtomatiziranRezultat = PrvBroj + VtorBroj;
-    }
-
-    public void StartniJaIgrata()
-    {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 }
